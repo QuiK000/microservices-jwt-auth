@@ -21,5 +21,11 @@ spring:
           batch_size: 20
         order_updates: true
 
+app:
+  security:
+    jwt:
+      access-token-expiration: 86400000
+      refresh-token-expiration: 684000000
+
 server:
   port: 8081
