@@ -10,6 +10,8 @@ public interface IJwtService {
 
     String generateRefreshToken(User user);
 
+    String refreshAccessToken(String refreshToken);
+
     String extractEmail(String token);
 
     String extractUserId(String token);
@@ -20,7 +22,5 @@ public interface IJwtService {
 
     Date extractExpiration(String token);
 
-    boolean isTokenExpired(String token);
-
-    boolean isRefreshToken(String token);
+    boolean isTokenValid(String token, String expectedEmail);
 }
