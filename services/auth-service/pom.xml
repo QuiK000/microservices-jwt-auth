@@ -70,6 +70,12 @@
 			<artifactId>jjwt-impl</artifactId>
 			<version>0.13.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>1.6.3</version>
+			<scope>compile</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.postgresql</groupId>
