@@ -1,6 +1,8 @@
 package com.dev.quikkkk.auth_service.controller;
 
+import com.dev.quikkkk.auth_service.dto.request.LoginRequest;
 import com.dev.quikkkk.auth_service.dto.request.RegistrationRequest;
+import com.dev.quikkkk.auth_service.dto.response.AuthenticationResponse;
 import com.dev.quikkkk.auth_service.service.IAuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,5 +21,10 @@ public class AuthenticationController {
     public ResponseEntity<Void> register(@RequestBody RegistrationRequest request) {
         authenticationService.register(request);
         return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<AuthenticationResponse> login(@RequestBody LoginRequest request) {
+        return ResponseEntity.ok(authenticationService.login(request));
     }
 }
