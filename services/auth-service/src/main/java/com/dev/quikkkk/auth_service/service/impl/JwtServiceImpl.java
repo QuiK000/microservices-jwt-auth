@@ -37,7 +37,7 @@ public class JwtServiceImpl implements IJwtService {
     @Value("${app.security.jwt.access-token-expiration}")
     private long accessTokenExpiration;
 
-    @Value("{app.security.jwt.refresh-token-expiration}")
+    @Value("${app.security.jwt.refresh-token-expiration}")
     private long refreshTokenExpiration;
 
     @Override
