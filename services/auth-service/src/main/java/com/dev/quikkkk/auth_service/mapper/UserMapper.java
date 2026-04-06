@@ -1,6 +1,7 @@
 package com.dev.quikkkk.auth_service.mapper;
 
 import com.dev.quikkkk.auth_service.dto.request.RegistrationRequest;
+import com.dev.quikkkk.auth_service.dto.response.AuthenticationResponse;
 import com.dev.quikkkk.auth_service.entity.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -12,4 +13,7 @@ public interface UserMapper {
     @Mapping(target = "enabled", constant = "true")
     @Mapping(target = "roles", ignore = true)
     User toEntity(RegistrationRequest request);
+
+    @Mapping(target = "tokenType", constant = "Bearer ")
+    AuthenticationResponse toResponse(String accessToken, String refreshToken);
 }
