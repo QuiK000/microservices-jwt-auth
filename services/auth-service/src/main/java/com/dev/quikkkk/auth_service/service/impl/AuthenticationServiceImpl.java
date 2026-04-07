@@ -19,7 +19,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.CompletableFuture;
 
 @Service
 @RequiredArgsConstructor
@@ -66,16 +65,8 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
                 )
         );
 
-        CompletableFuture<String> accessTokenFuture = CompletableFuture.supplyAsync(
-                () -> jwtService.generateAccessToken(user)
-        );
-
-        CompletableFuture<String> refreshTokenFuture = CompletableFuture.supplyAsync(
-                () -> jwtService.generateRefreshToken(user)
-        );
-
-        String accessToken = accessTokenFuture.join();
-        String refreshToken = refreshTokenFuture.join();
+        String accessToken = jwtService.generateAccessToken(user);
+        String refreshToken = jwtService.generateRefreshToken(user);
 
         return userMapper.toResponse(accessToken, refreshToken);
     }
